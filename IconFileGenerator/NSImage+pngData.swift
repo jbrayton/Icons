@@ -9,7 +9,7 @@ import Cocoa
 
 extension NSImage {
     
-    var JB_pngData: Data? {
+    var JSB_pngData: Data? {
         if let tiff = self.tiffRepresentation, let tiffData = NSBitmapImageRep(data: tiff) {
             return tiffData.representation(using: .png, properties: [:])
         }

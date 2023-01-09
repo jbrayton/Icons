@@ -1,5 +1,5 @@
 //
-//  IconCell.swift
+//  JSBIconCell.swift
 //  Icons
 //
 //  Created by John Brayton on 1/8/23.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class IconCell : UICollectionViewCell {
+class JSBIconCell : UICollectionViewCell {
     
     static let borderWidth = 3.0
     static let cornerRadiusMultiplier = CGFloat(2*0.2237)
     
-    var iconVariation: JBIconVariation?
+    var iconVariation: JSBIconVariation?
     
     let highlightColor = UIColor.gray
     
@@ -28,14 +28,14 @@ class IconCell : UICollectionViewCell {
     override func draw(_ rect: CGRect) {
         if let iconVariation = self.iconVariation {
             
-            var borderWidth = IconCell.borderWidth
+            var borderWidth = JSBIconCell.borderWidth
             
             let outerSquircleRect = self.bounds
-            let outerSquircleBezierPath = UIBezierPath.superellipse(in: outerSquircleRect, cornerRadius: outerSquircleRect.size.width*IconCell.cornerRadiusMultiplier)
+            let outerSquircleBezierPath = UIBezierPath.JSB_superellipse(in: outerSquircleRect, cornerRadius: outerSquircleRect.size.width*JSBIconCell.cornerRadiusMultiplier)
             highlightColor.setFill()
             outerSquircleBezierPath.fill()
 
-            iconVariation.backgroundColor.uiColor.setFill()
+            iconVariation.backgroundColor.JSB_uiColor.setFill()
             if self.isSelected || self.isFocused {
                 if UIDevice.current.userInterfaceIdiom == .pad {
                     borderWidth = 3 * borderWidth
@@ -44,17 +44,17 @@ class IconCell : UICollectionViewCell {
                 }
             }
             let innerSquircleRect = CGRect(x: borderWidth, y: borderWidth, width: self.bounds.size.width - (2*borderWidth), height: self.bounds.size.width - (2*borderWidth))
-            let innerSquicleBezierPath = UIBezierPath.superellipse(in: innerSquircleRect, cornerRadius: innerSquircleRect.size.width*IconCell.cornerRadiusMultiplier)
+            let innerSquicleBezierPath = UIBezierPath.JSB_superellipse(in: innerSquircleRect, cornerRadius: innerSquircleRect.size.width*JSBIconCell.cornerRadiusMultiplier)
             innerSquicleBezierPath.fill()
             
-            let scale = (self.bounds.size.width - (2*IconCell.borderWidth)) / 1024.0
+            let scale = (self.bounds.size.width - (2*JSBIconCell.borderWidth)) / 1024.0
 
             let context = UIGraphicsGetCurrentContext()!
             
             /// Group
             do {
                 context.saveGState()
-                context.translateBy(x: IconCell.borderWidth, y: IconCell.borderWidth)
+                context.translateBy(x: JSBIconCell.borderWidth, y: JSBIconCell.borderWidth)
 
                 let bezierPath = UIBezierPath()
                 bezierPath.move(to: CGPoint(x: 511.5*scale, y: 320*scale))
@@ -63,7 +63,7 @@ class IconCell : UICollectionViewCell {
                 bezierPath.addLine(to: CGPoint(x: 511.5*scale, y: 320*scale))
                 bezierPath.close()
                 bezierPath.usesEvenOddFillRule = true
-                iconVariation.foregroundColor.uiColor.setFill()
+                iconVariation.foregroundColor.JSB_uiColor.setFill()
                 bezierPath.fill()
 
                 context.restoreGState()

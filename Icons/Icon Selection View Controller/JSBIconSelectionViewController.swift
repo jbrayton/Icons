@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  JSBIconSelectionViewController.swift
 //  Icons
 //
 //  Created by John Brayton on 1/8/23.
@@ -10,12 +10,12 @@ import UIKit
 /*
     This class does nothing to update the view if the current icon is set from another view controller (on iPad).
  */
-class ViewController: UICollectionViewController {
+class JSBIconSelectionViewController: UICollectionViewController {
 
     var currentIconIndexPath: IndexPath {
-        let appIconIdentifier = UIApplication.shared.alternateIconName ?? JBIconVariation.primaryIconIdentifier
+        let appIconIdentifier = UIApplication.shared.alternateIconName ?? JSBIconVariation.primaryIconIdentifier
         var rowNumber = 0
-        for (i, iconVariation) in JBIconVariation.allVariations.enumerated() {
+        for (i, iconVariation) in JSBIconVariation.allVariations.enumerated() {
             if iconVariation.identifier == appIconIdentifier {
                 rowNumber = i
                 break
@@ -29,7 +29,7 @@ class ViewController: UICollectionViewController {
         let isIpad = UIDevice.current.userInterfaceIdiom == .pad
         collectionViewLayout.scrollDirection = .vertical
         let iconSize: CGFloat = isIpad ? 83.5 : 60
-        let cellSize = (IconCell.borderWidth * 2) + iconSize
+        let cellSize = (JSBIconCell.borderWidth * 2) + iconSize
         collectionViewLayout.minimumLineSpacing = isIpad ? iconSize : 16.0
         collectionViewLayout.minimumInteritemSpacing = isIpad ? iconSize : 16.0
         collectionViewLayout.itemSize = CGSize(width: cellSize, height: cellSize)
@@ -48,7 +48,7 @@ class ViewController: UICollectionViewController {
         self.resetCollectionViewLayout()
         self.collectionView.allowsFocus = true
         self.collectionView.contentInsetAdjustmentBehavior = .always
-        self.collectionView.register(IconCell.self, forCellWithReuseIdentifier: "cell")
+        self.collectionView.register(JSBIconCell.self, forCellWithReuseIdentifier: "cell")
         self.collectionView?.isHidden = false
     }
 
@@ -62,14 +62,14 @@ class ViewController: UICollectionViewController {
     func resetCollectionViewLayout() {
         let isIpad = UIDevice.current.userInterfaceIdiom == .pad
         let iconSize: CGFloat = isIpad ? 83.5 : 60
-        let cellSize = (IconCell.borderWidth * 2) + iconSize
+        let cellSize = (JSBIconCell.borderWidth * 2) + iconSize
         let spaceBetween = isIpad ? iconSize : 16.0
         
         let collectionViewLayout: UICollectionViewFlowLayout!
         if isIpad {
             collectionViewLayout = UICollectionViewFlowLayout()
         } else {
-            collectionViewLayout = ColumnFlowLayout(cellsPerRow: 4)
+            collectionViewLayout = JSBColumnFlowLayout(cellsPerRow: 4)
         }
         collectionViewLayout.scrollDirection = .vertical
         if isIpad {
@@ -88,19 +88,19 @@ class ViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return JBIconVariation.allVariations.count
+        return JSBIconVariation.allVariations.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! IconCell
-        cell.iconVariation = JBIconVariation.allVariations[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! JSBIconCell
+        cell.iconVariation = JSBIconVariation.allVariations[indexPath.item]
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let variation = JBIconVariation.allVariations[indexPath.item]
+        let variation = JSBIconVariation.allVariations[indexPath.item]
         collectionView.cellForItem(at: indexPath)?.setNeedsDisplay()
-        if variation.identifier == JBIconVariation.primaryIconIdentifier {
+        if variation.identifier == JSBIconVariation.primaryIconIdentifier {
             UIApplication.shared.setAlternateIconName(nil)
         } else {
             UIApplication.shared.setAlternateIconName(variation.identifier)

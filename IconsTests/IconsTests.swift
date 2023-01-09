@@ -10,27 +10,31 @@ import XCTest
 
 final class IconsTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func testIcons() {
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        let infoDictionary = Bundle.main.infoDictionary!
+        let deviceIconSpec = infoDictionary["CFBundleIcons"] as! [String:Any]
+        let alternates = deviceIconSpec["CFBundleAlternateIcons"] as! [String:Any]
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+        var seenIdentifiers = Set<String>()
+        for iconVariation in JSBIconVariation.allVariations {
+            
+            // Make sure the icon has a unique name.
+            XCTAssert(!seenIdentifiers.contains(iconVariation.identifier))
+            seenIdentifiers.insert(iconVariation.identifier)
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+            // Verify that the icon is in the Info.plist file as expected. Note that this check really should
+            // be run on both an iPhone simulator and an iPad simulator. On iPad, deviceIconSpec["CFBundleAlternateIcons"]
+            // returns "CFBundleIcons~ipad" from the Info.plist file.
+            if iconVariation.identifier != JSBIconVariation.primaryIconIdentifier {
+                let entry = alternates[iconVariation.identifier] as! [String:Any]
+                XCTAssertEqual(entry["CFBundleIconName"] as? String, iconVariation.identifier)
+            }
+            
+            let image = UIImage(named: iconVariation.identifier)!
+            XCTAssertEqual(image.size.width, 1024)
+            XCTAssertEqual(image.size.height, 1024)
         }
     }
-
+    
 }

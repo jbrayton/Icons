@@ -1,5 +1,5 @@
 //
-//  SceneDelegate.swift
+//  JSBSceneDelegate.swift
 //  Icons
 //
 //  Created by John Brayton on 1/8/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class JSBSceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     weak var sceneSession: UISceneSession?
@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.connectionOptions = connectionOptions
         let window = UIWindow(windowScene: windowScene)
         window.backgroundColor = UIColor.black
-        let rootViewController = ViewController()
+        let rootViewController = JSBIconSelectionViewController()
         self.window = window
         self.rootViewController = UINavigationController(rootViewController: rootViewController)
         window.rootViewController = self.rootViewController

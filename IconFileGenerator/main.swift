@@ -37,12 +37,12 @@ func saveAppIconSet( image: NSImage, iconName: String, directory: URL ) {
     try! FileManager.default.createDirectory(at: URL(fileURLWithPath: dirPath), withIntermediateDirectories: false)
     let path = String(format: "%@/%@.png", dirPath, iconName)
     let fileUrl = URL(fileURLWithPath: path)
-    try! image.JB_pngData!.write(to: fileUrl)
+    try! image.JSB_pngData!.write(to: fileUrl)
     addContentsJson( iconName: iconName, directory: directory)
 }
 
 // Does the drawing.
-func draw( iconVariation: JBIconVariation ) {
+func draw( iconVariation: JSBIconVariation ) {
     let backgroundColor = iconVariation.backgroundColor.nsColor
     let foregroundColor = iconVariation.foregroundColor.nsColor
 
@@ -77,10 +77,10 @@ func resize(image: NSImage, withSize targetSize: NSSize) -> NSImage {
 
 func plistValues( ipad: Bool ) -> [AnyHashable:Any] {
     var bundleIconsValue = [AnyHashable:Any]()
-    bundleIconsValue["CFBundlePrimaryIcon"] = ["CFBundleIconFiles":[JBIconVariation.primaryIconIdentifier],"CFBundleIconName":JBIconVariation.primaryIconIdentifier]
+    bundleIconsValue["CFBundlePrimaryIcon"] = ["CFBundleIconFiles":[JSBIconVariation.primaryIconIdentifier],"CFBundleIconName":JSBIconVariation.primaryIconIdentifier]
     var alternates = [AnyHashable:Any]()
-    for iconVariation in JBIconVariation.allVariations {
-        if iconVariation.identifier != JBIconVariation.primaryIconIdentifier {
+    for iconVariation in JSBIconVariation.allVariations {
+        if iconVariation.identifier != JSBIconVariation.primaryIconIdentifier {
             let iconName = String(format: "%@", iconVariation.identifier)
             alternates[iconName] = ["CFBundleIconFiles":[iconName], "UIPrerenderedIcon":false,"CFBundleIconName":iconName]
         }
@@ -102,7 +102,7 @@ func writePlist(directory: URL) {
 let directory = URL(filePath: NSHomeDirectory()).appending(path: "Desktop").appending(path: String(format: "Generated Icons %@", UUID().uuidString))
 try! FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
 
-for iconVariation in JBIconVariation.allVariations {
+for iconVariation in JSBIconVariation.allVariations {
     let imageSize = NSSize(width: 1024.0, height: 1024.0)
     var image = NSImage(size: imageSize)
     image.lockFocus()

@@ -25,7 +25,7 @@ extension UIBezierPath {
      
      [Superellipse reference](https://en.wikipedia.org/wiki/Superellipse) (Wikipedia)
      */
-    static func superellipse(in rect: CGRect, cornerRadius: CGFloat) -> UIBezierPath {
+    static func JSB_superellipse(in rect: CGRect, cornerRadius: CGFloat) -> UIBezierPath {
         /*
          Corner radius can't exceed half of the shorter side; correct if necessary:
          */

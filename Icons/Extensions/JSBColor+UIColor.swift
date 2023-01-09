@@ -7,9 +7,9 @@
 
 import UIKit
 
-extension JBColor {
+extension JSBColor {
     
-    var uiColor : UIColor {
+    var JSB_uiColor : UIColor {
         return UIColor(red: self.red, green: self.green, blue: self.blue, alpha: 1.0)
     }
     

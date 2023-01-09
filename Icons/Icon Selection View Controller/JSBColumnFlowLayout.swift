@@ -11,7 +11,7 @@ import UIKit
     For the iPhone, make sure there are always exactly four items per row when in portrait mode.
     Adapted from https://stackoverflow.com/questions/14674986/uicollectionview-set-number-of-columns
  */
-class ColumnFlowLayout: UICollectionViewFlowLayout {
+class JSBColumnFlowLayout: UICollectionViewFlowLayout {
 
     let cellsPerRow: Int
 
