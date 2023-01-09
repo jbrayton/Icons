@@ -15,8 +15,6 @@
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
 				</dict>
 			</array>
 		</dict>
@@ -25,25 +23,124 @@
     <dict>
         <key>CFBundleAlternateIcons</key>
         <dict>
-            <key>blue</key>
+            <key>blue-on-green</key>
             <dict>
                 <key>CFBundleIconFiles</key>
                 <array>
-                    <string>blue</string>
+                    <string>blue-on-green</string>
                 </array>
                 <key>CFBundleIconName</key>
-                <string>blue</string>
+                <string>blue-on-green</string>
                 <key>UIPrerenderedIcon</key>
                 <false/>
             </dict>
-            <key>green</key>
+            <key>blue-on-red</key>
             <dict>
                 <key>CFBundleIconFiles</key>
                 <array>
-                    <string>green</string>
+                    <string>blue-on-red</string>
                 </array>
                 <key>CFBundleIconName</key>
-                <string>green</string>
+                <string>blue-on-red</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>blue-on-white</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>blue-on-white</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>blue-on-white</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>green-on-blue</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>green-on-blue</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>green-on-blue</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>green-on-red</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>green-on-red</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>green-on-red</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>green-on-white</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>green-on-white</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>green-on-white</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>red-on-blue</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>red-on-blue</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>red-on-blue</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>red-on-green</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>red-on-green</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>red-on-green</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>white-on-blue</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>white-on-blue</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>white-on-blue</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>white-on-green</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>white-on-green</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>white-on-green</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>white-on-red</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>white-on-red</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>white-on-red</string>
                 <key>UIPrerenderedIcon</key>
                 <false/>
             </dict>
@@ -52,35 +149,134 @@
         <dict>
             <key>CFBundleIconFiles</key>
             <array>
-                <string>red</string>
+                <string>red-on-white</string>
             </array>
             <key>CFBundleIconName</key>
-            <string>red</string>
+            <string>red-on-white</string>
         </dict>
     </dict>
     <key>CFBundleIcons~ipad</key>
     <dict>
         <key>CFBundleAlternateIcons</key>
         <dict>
-            <key>blue</key>
+            <key>blue-on-green</key>
             <dict>
                 <key>CFBundleIconFiles</key>
                 <array>
-                    <string>blue</string>
+                    <string>blue-on-green</string>
                 </array>
                 <key>CFBundleIconName</key>
-                <string>blue</string>
+                <string>blue-on-green</string>
                 <key>UIPrerenderedIcon</key>
                 <false/>
             </dict>
-            <key>green</key>
+            <key>blue-on-red</key>
             <dict>
                 <key>CFBundleIconFiles</key>
                 <array>
-                    <string>green</string>
+                    <string>blue-on-red</string>
                 </array>
                 <key>CFBundleIconName</key>
-                <string>green</string>
+                <string>blue-on-red</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>blue-on-white</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>blue-on-white</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>blue-on-white</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>green-on-blue</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>green-on-blue</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>green-on-blue</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>green-on-red</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>green-on-red</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>green-on-red</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>green-on-white</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>green-on-white</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>green-on-white</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>red-on-blue</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>red-on-blue</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>red-on-blue</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>red-on-green</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>red-on-green</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>red-on-green</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>white-on-blue</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>white-on-blue</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>white-on-blue</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>white-on-green</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>white-on-green</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>white-on-green</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>white-on-red</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>white-on-red</string>
+                </array>
+                <key>CFBundleIconName</key>
+                <string>white-on-red</string>
                 <key>UIPrerenderedIcon</key>
                 <false/>
             </dict>
@@ -89,10 +285,10 @@
         <dict>
             <key>CFBundleIconFiles</key>
             <array>
-                <string>red</string>
+                <string>red-on-white</string>
             </array>
             <key>CFBundleIconName</key>
-            <string>red</string>
+            <string>red-on-white</string>
         </dict>
     </dict>
 </dict>
