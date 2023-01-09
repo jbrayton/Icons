@@ -64,6 +64,15 @@ func draw( iconVariation: JBIconVariation ) {
 
 }
 
+func resize(image: NSImage, withSize targetSize: NSSize) -> NSImage {
+    let frame = NSRect(x: 0, y: 0, width: targetSize.width, height: targetSize.height)
+    let representation = image.bestRepresentation(for: frame, context: nil, hints: nil)!
+    let image = NSImage(size: targetSize, flipped: false, drawingHandler: { (_) -> Bool in
+        return representation.draw(in: frame)
+    })
+    return image
+}
+
 // MARK: Info.plist file
 
 func plistValues( ipad: Bool ) -> [AnyHashable:Any] {
@@ -94,10 +103,15 @@ let directory = URL(filePath: NSHomeDirectory()).appending(path: "Desktop").appe
 try! FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
 
 for iconVariation in JBIconVariation.allVariations {
-    let image = NSImage(size: NSSize(width: 1024.0, height: 1024.0))
+    let imageSize = NSSize(width: 1024.0, height: 1024.0)
+    var image = NSImage(size: imageSize)
     image.lockFocus()
     draw(iconVariation: iconVariation)
     image.unlockFocus()
+    
+    // For some reason if we don't do this we end up with a 2048x2048 image.
+    image = resize(image: image, withSize: imageSize)
+    
     saveAppIconSet(image: image, iconName: iconVariation.identifier, directory: directory)
 }
 
